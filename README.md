@@ -1,6 +1,6 @@
 # Grocery list app
 
-A simple app made using `react`.
+A simple app made using `react` & `typescript`.
 
 Features:
 
