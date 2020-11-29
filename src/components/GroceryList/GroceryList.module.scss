@@ -1,0 +1,57 @@
+@import "../../css/variables";
+
+:root {
+  --margin: 1.25rem;
+}
+
+.ul {
+  list-style-type: none;
+  margin-top: var(--margin);
+  width: 100%;
+  max-width: 500px;
+}
+
+.li {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  margin-bottom: 2px;
+  background-color: $blue-100;
+  &:hover {
+    background-color: $blue-200;
+  }
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+.delete {
+  color: $warning;
+  padding: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button_remove-all {
+  margin-top: var(--margin);
+  padding: 0.5em;
+  background-color: $blue-700;
+  border: none;
+  color: white;
+  border-radius: $border-sm;
+  cursor: pointer;
+  &:focus,
+  &:hover {
+    outline: none;
+    background-color: $blue-800;
+  }
+}
+
+.no-items {
+  margin-top: var(--margin);
+}

@@ -1,0 +1,31 @@
+@import "../../css/variables";
+
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  max-width: 500px;
+}
+
+.input {
+  padding: 5px 10px;
+  line-height: 1.25em;
+  text-align: center;
+  width: 80%;
+  max-width: 300px;
+  border: 1px solid $blue-600;
+  border-radius: $border-sm;
+  box-shadow: $shadow2;
+  &:focus {
+    outline: none;
+    border-color: $blue-800;
+  }
+  &::placeholder {
+    // font-size: 0.6em;
+    font-style: italic;
+    padding-bottom: 5px;
+  }
+  &:focus::placeholder {
+    color: transparent;
+  }
+}
