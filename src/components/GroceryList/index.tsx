@@ -1,5 +1,5 @@
 import { MouseEvent } from "react";
-import classnames from "classnames";
+import classNames from "classnames";
 import styles from "./GroceryList.module.scss";
 
 const GroceryList = ({
@@ -7,6 +7,7 @@ const GroceryList = ({
   checkItem,
   removeItem,
   removeAllChecked,
+  clearAll,
 }: GroceryListProps) => {
   const checkedItems: boolean = list.some((item) => item.checked);
 
@@ -39,14 +40,27 @@ const GroceryList = ({
               />
             ))}
       </ul>
-      {checkedItems && (
-        <button
-          onClick={removeAllChecked}
-          className={styles["button_remove-all"]}
-        >
-          Delete all checked items
-        </button>
-      )}
+      <div>
+        {checkedItems && (
+          <button
+            onClick={removeAllChecked}
+            className={classNames(
+              styles.button,
+              styles["button_remove-checked"]
+            )}
+          >
+            Delete all checked items
+          </button>
+        )}
+        {list.length > 0 && (
+          <button
+            onClick={clearAll}
+            className={classNames(styles.button, styles["button_clear-all"])}
+          >
+            Clear All
+          </button>
+        )}
+      </div>
     </>
   );
 };
@@ -62,11 +76,10 @@ const GroceryListItem = ({
   };
 
   return (
-    <li
-      className={classnames(styles.li, { [styles.checked]: item.checked })}
-      onClick={() => checkItem(item.id)}
-    >
-      {item.value}
+    <li className={classNames(styles.li)} onClick={() => checkItem(item.id)}>
+      <span className={classNames({ [styles.checked]: item.checked })}>
+        {item.value}
+      </span>
       <span className={styles.delete} onClick={handleRemoveClick}>
         X
       </span>
@@ -85,6 +98,7 @@ interface GroceryListProps {
   removeItem: Function;
   checkItem: Function;
   removeAllChecked: (event: MouseEvent) => void;
+  clearAll: (event: MouseEvent) => void;
 }
 
 export interface GroceryListItemInterface {

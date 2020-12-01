@@ -37,18 +37,30 @@
   font-weight: bold;
 }
 
-.button_remove-all {
+.button {
   margin-top: var(--margin);
+  margin-left: var(--margin);
+  margin-right: var(--margin);
   padding: 0.5em;
-  background-color: $blue-700;
   border: none;
   color: white;
   border-radius: $border-sm;
   cursor: pointer;
-  &:focus,
-  &:hover {
-    outline: none;
-    background-color: $blue-800;
+  &_remove-checked {
+    background-color: $blue-700;
+    &:focus,
+    &:hover {
+      outline: none;
+      background-color: $blue-800;
+    }
+  }
+  &_clear-all {
+    background-color: $warning;
+    &:focus,
+    &:hover {
+      outline: none;
+      background-color: red;
+    }
   }
 }
 
