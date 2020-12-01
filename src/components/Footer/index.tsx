@@ -13,10 +13,11 @@ const Footer = () => {
     const aHeight: number = (document.querySelector("#app") as HTMLElement)
       .offsetHeight;
 
-    setHeight({
-      app: aHeight,
-      window: wHeight,
-    });
+    if (wHeight !== height.window || aHeight !== height.app)
+      setHeight({
+        app: aHeight,
+        window: wHeight,
+      });
   };
 
   useEffect(() => {
@@ -24,17 +25,15 @@ const Footer = () => {
     updateHeight();
 
     return () => window.removeEventListener("resize", updateHeight);
-  }, [height]);
+  });
 
   const classes = classNames({
     [styles.footer]: true,
-    [styles.absolute]: height.window > height.app,
+    [styles.absolute]: height.window > height.app + 50,
   });
 
   return (
-    <footer className={classes}>
-      Copyright © 2020. Bradley Burgess.
-    </footer>
+    <footer className={classes}>Copyright © 2020. Bradley Burgess.</footer>
   );
 };
 
