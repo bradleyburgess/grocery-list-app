@@ -18,6 +18,10 @@ const App = () => {
     localStorage.setItem("groceryList", JSON.stringify(newList));
   };
 
+  const handleClearAll = () => {
+    setGroceryList([]);
+  };
+
   const handleAddItem = (value: string) => {
     value = value.toLowerCase().trim();
     // Check for empty input
@@ -83,6 +87,7 @@ const App = () => {
           checkItem={handleCheckItem}
           removeItem={handleRemoveItem}
           removeAllChecked={handleRemoveAllChecked}
+          clearAll={handleClearAll}
         />
       </AppContainer>
       <Footer />
