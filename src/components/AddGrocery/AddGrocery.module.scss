@@ -1,10 +1,36 @@
 @import "../../css/variables";
 
-.form {
+.container {
   width: 100%;
+  max-width: 500px;
   display: flex;
   justify-content: center;
-  max-width: 500px;
+  position: relative;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  // max-width: 500px;
+  width: 100%;
+}
+
+.suggest-list {
+  position: absolute;
+  top: 40px;
+  ul {
+    background-color: white;
+    list-style-type: none;
+    width: 300px;
+    li {
+      padding: 0.75em;
+      height: 36px;
+      user-select: none;
+      &:hover {
+        background-color: lightgray;
+      }
+    }
+  }
 }
 
 .input {
