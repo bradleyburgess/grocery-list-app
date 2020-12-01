@@ -1,4 +1,4 @@
-[
+export default [
   "apples",
   "apple sauce",
   "asparagus",
@@ -195,5 +195,5 @@
   "worcestershire sauce",
   "yeast",
   "yogurt",
-  "zucchini"
-]
+  "zucchini",
+];
